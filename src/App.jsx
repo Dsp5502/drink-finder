@@ -1,16 +1,24 @@
 import { Container } from 'react-bootstrap';
+import DrinksList from './components/DrinksList';
 import FormComp from './components/FormComp';
+import ModalDrink from './components/ModalDrink';
 import { CategoryProvider } from './context/CategoryProvider';
+import { DrinksProvider } from './context/DrinksProvider';
 
 function App() {
   return (
     <CategoryProvider>
-      <header className='py-5'>
-        <h1>Drink Finder</h1>
-      </header>
-      <Container className='mt-5'>
-        <FormComp />
-      </Container>
+      <DrinksProvider>
+        <header className='py-5'>
+          <h1>Drink Finder</h1>
+        </header>
+        <Container className='mt-5'>
+          <FormComp />
+
+          <DrinksList />
+          <ModalDrink />
+        </Container>
+      </DrinksProvider>
     </CategoryProvider>
   );
 }
