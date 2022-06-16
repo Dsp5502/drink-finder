@@ -10,7 +10,7 @@ const FormComp = () => {
   });
   const [error, setError] = useState('');
   const { category } = useCategory();
-  const { consultDrink } = useDrinks();
+  const { consultDrink, handleModalClickFavorite } = useDrinks();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.values(find).includes('')) {
@@ -65,6 +65,16 @@ const FormComp = () => {
         </Col>
       </Row>
       <Row className='justify-content-end'>
+        <Col md={3}>
+          <Button
+            variant='warning'
+            className='text-uppercase w-100'
+            onClick={handleModalClickFavorite}
+          >
+            {' '}
+            Favorite Drinks
+          </Button>
+        </Col>
         <Col md={3}>
           <Button
             variant='danger'
